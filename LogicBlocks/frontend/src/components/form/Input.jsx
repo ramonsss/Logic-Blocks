@@ -1,5 +1,3 @@
-import styles from "./Input.module.css";
-
 const Input = ({
   type,
   text,
@@ -10,10 +8,16 @@ const Input = ({
   multiple,
 }) => {
   return (
-    <div>
-      <label htmlFor={name}></label>
-      <input type="text" />
-    </div>
+      <input
+        type={type}
+        name={name}
+        id={name}
+        placeholder={placeholder}
+        onChange={handleOnChange}
+        value={value}
+        {...(multiple ? { multiple } : "")}
+        required
+      />
   );
 };
 

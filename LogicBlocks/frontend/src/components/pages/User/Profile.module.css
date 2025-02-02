@@ -1,0 +1,7 @@
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 67vh;
+    background-color: #fdfdfd;
+    overflow: hidden;
+}

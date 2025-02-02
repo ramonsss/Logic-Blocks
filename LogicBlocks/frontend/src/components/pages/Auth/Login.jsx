@@ -1,9 +1,12 @@
 import Input from "../../form/Input";
 
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "../../form/Form.module.css";
+
+// context
+import { Context } from "../../../context/UserContext";
 
 // icons
 import { FaUser } from "react-icons/fa";
@@ -12,18 +15,37 @@ import { IoIosMail } from "react-icons/io";
 
 const Login = () => {
   const [isActive, setIsActive] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const navigate = useNavigate();
+  const [user, setUser] = useState({})
+  const {register} = useContext(Context);
+  const {login} = useContext(Context);
 
-  const handleChange = (e) => {};
+  // const [isAnimating, setIsAnimating] = useState(false);
+  // const navigate = useNavigate();
 
-  const handleRegisterClick = () => {
-    setIsActive(isAnimating);
-    setIsAnimating(true); 
-    setTimeout(() => {
-      navigate('#'); 
-    }, 3500); 
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    // send the user to the bank
+    register(user);
+  }
+
+  const handleSubmitLogin = (e) => {
+    e.preventDefault()
+    
+    login(user);
+  }
+
+  // const handleRegisterClick = () => {
+  //   setIsActive(isAnimating);
+  //   setIsAnimating(true); 
+  //   setTimeout(() => {
+  //     navigate('#'); 
+  //   }, 3500); 
+  // };
   
   return (
       <div className={styles.container}>
@@ -33,7 +55,7 @@ const Login = () => {
 
           <div className={`${styles["form-box"]} ${styles.login}`}>
           <h1 className={styles.animation} style={{ '--i': 0, '--j': 21 }}>Entrar</h1>
-            <form>
+            <form onSubmit={handleSubmitLogin}>
               <div className={`${styles["input-box"]} ${styles.animation}`} style={{ '--i': 1, '--j': 22 }}>
                 <Input
                   text="E-mail"
@@ -57,9 +79,9 @@ const Login = () => {
                 <FaLock className={`${styles["react-icon"]}`} />
               </div>
               <input type="submit" value="Entrar" className={`${styles["btn"]} ${styles.animation}`} style={{ '--i': 3, '--j': 24 }} />
-              <div className={`${styles["logreg-link"]} ${styles.animation}`} style={{ '--i': 4, '--j': 25 }}>
+              <div className={`${styles["logred-link"]} ${styles.animation}`} style={{ '--i': 4, '--j': 25 }}>
                 <p>
-                  Não possui uma conta? <span onClick={ () => setIsActive(true)}>Cadastre-se</span>
+                  Não possui uma conta? <Link onClick={ () => setIsActive(true)}>Cadastre-se</Link>
                 </p>
               </div>
             </form>
@@ -76,7 +98,7 @@ const Login = () => {
 
           <div className={`${styles["form-box"]} ${styles.register}`}>
           <h1 className={styles.animation} style={{ '--i': 17, '--j': 0 }}>Registrar</h1>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className={`${styles["input-box"]} ${styles.animation}` } style={{ '--i': 18, '--j': 1 }}>
               <Input
                 text="Nome"
@@ -122,7 +144,7 @@ const Login = () => {
               <FaLock className={`${styles["react-icon"]}`} />
             </div>
             <input type="submit" value="Cadastrar" className={`${styles.btn} ${styles.animation}`} style={{ '--i': 22, '--j': 5 }} />
-            <div className={`${styles["logreg-link"]} ${styles.animation}`} style={{ '--i': 23, '--j': 6 }}>
+            <div className={`${styles["logred-link"]} ${styles.animation}`} style={{ '--i': 23, '--j': 6 }}>
               <p>
                 Já possui uma conta? <Link to="/login" onClick={ () => setIsActive(false)}>Entrar</Link>
               </p>

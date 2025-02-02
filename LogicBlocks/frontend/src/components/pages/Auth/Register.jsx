@@ -11,9 +11,19 @@ import { FaLock } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 
 const Register = () => {
+  const [user, setUser] = useState({})
   const [isActive, setIsActive] = useState(false);
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    // send the user to the bank
+    console.log(user);
+  }
 
   const handleRegisterClick = () => {
     setIsActive(true); // Adiciona a classe active ao clicar em "Cadastre-se"
@@ -25,9 +35,9 @@ const Register = () => {
         <span className={styles["bg-animate2"]}></span>
 
         <div className={`${styles["form-box"]} ${styles.register}`}>
-          <h1>Registrar</h1>
-          <form>
-            <div className={styles["input-box"]}>
+          <h1 className={styles.animation} style={{ '--i': 17, '--j': 0 }}>Registrar</h1>
+          <form onSubmit={handleSubmit}>
+            <div className={`${styles["input-box"]} ${styles.animation}` } style={{ '--i': 18, '--j': 1 }}>
               <Input
                 text="Nome"
                 type="text"
@@ -38,7 +48,7 @@ const Register = () => {
               <label htmlFor="name">Nome</label>
               <FaUser className={`${styles["react-icon"]}`} />
             </div>
-            <div className={styles["input-box"]}>
+            <div className={`${styles["input-box"]} ${styles.animation}`} style={{ '--i': 19, '--j': 2 }}>
               <Input
                 text="E-mail"
                 type="email"
@@ -49,7 +59,7 @@ const Register = () => {
               <label htmlFor="email">E-mail</label>
               <IoIosMail className={`${styles["react-icon"]}`} />
             </div>
-            <div className={styles["input-box"]}>
+            <div className={`${styles["input-box"]} ${styles.animation}`} style={{ '--i': 20, '--j': 3 }}>
               <Input
                 text="Senha"
                 type="password"
@@ -60,7 +70,7 @@ const Register = () => {
               <label htmlFor="password">Senha</label>
               <FaLock className={`${styles["react-icon"]}`} />
             </div>
-            <div className={styles["input-box"]}>
+            <div className={`${styles["input-box"]} ${styles.animation}`} style={{ '--i': 21, '--j': 4 }}>
               <Input
                 text="Confirmação de senha"
                 type="password"
@@ -71,18 +81,18 @@ const Register = () => {
               <label htmlFor="confirmpassword">Confirme sua senha</label>
               <FaLock className={`${styles["react-icon"]}`} />
             </div>
-            <input type="submit" value="Cadastrar" className={styles.btn} />
-            <div className={styles["logred-link"]}>
+            <input type="submit" value="Cadastrar" className={`${styles.btn} ${styles.animation}`} style={{ '--i': 22, '--j': 5 }} />
+            <div className={`${styles["logreg-link"]} ${styles.animation}`} style={{ '--i': 23, '--j': 6 }}>
               <p>
-                Já possui uma conta? <Link to="/login" onClick={handleRegisterClick}>Entrar</Link>{" "}
+                Já possui uma conta? <Link to="/login" onClick={ () => setIsActive(false)}>Entrar</Link>
               </p>
             </div>
           </form>
         </div>
 
         <div className={`${styles["info-text"]} ${styles.register}`}>
-          <h2>Bem vindo de volta</h2>
-          <p>
+          <h2 className={styles.animation} style={{ '--i': 17, '--j': 0 }}>Bem vindo de volta</h2>
+          <p className={styles.animation} style={{ '--i': 18, '--j': 1 }}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores
             necessitatibus labore repre
           </p>

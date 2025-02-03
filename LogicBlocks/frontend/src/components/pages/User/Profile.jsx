@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import styles from "./Profile.module.css";
-// import formStyles from '../../form/Form.module.css'
+import img from "../../../assets/img/img.svg";
 
 import Input from "../../form/Input";
 
@@ -11,7 +11,7 @@ import { FaLock } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 
 const Profile = () => {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
 
   const onFileChange = () => {};
 
@@ -25,9 +25,9 @@ const Profile = () => {
       </div>
       <div className={styles["form-container"]}>
         <div className={styles["update-user"]}>
-          <form className={styles["update-user-form"]}>
+          <form className={`${styles["update-user-form"]} ${styles.form}`}>
             <h2 className={styles.title}>Update</h2>
-            <div className={styles["input-field"]}>
+            <div>
               <Input
                 text="Imagem"
                 type="file"
@@ -36,7 +36,7 @@ const Profile = () => {
               />
             </div>
             <div className={styles["input-field"]}>
-              <IoIosMail />
+              <IoIosMail className={`${styles["react-icon"]}`} />
               <Input
                 text="E-mail"
                 type="email"
@@ -44,10 +44,11 @@ const Profile = () => {
                 placeholder="Digite seu e-mail"
                 handleOnChange={handleChange}
                 value={user.email || ""}
+                className={styles.input}
               />
             </div>
             <div className={styles["input-field"]}>
-            <FaUser />
+              <FaUser className={`${styles["react-icon"]}`} />
               <Input
                 text="Nome"
                 type="text"
@@ -55,30 +56,50 @@ const Profile = () => {
                 placeholder="Digite seu nome"
                 handleOnChange={handleChange}
                 value={user.name || ""}
+                className={styles.input}
               />
             </div>
             <div className={styles["input-field"]}>
-              <FaLock />
+              <FaLock className={`${styles["react-icon"]}`} />
               <Input
                 text="Senha"
                 type="password"
                 name="password"
                 placeholder="Digite sua senha"
                 handleOnChange={handleChange}
+                className={styles.input}
               />
             </div>
             <div className={styles["input-field"]}>
-              <FaLock />
+              <FaLock className={`${styles["react-icon"]}`} />
               <Input
                 text="Senha"
                 type="password"
                 name="confirmpassword"
                 placeholder="Confirme sua senha"
                 handleOnChange={handleChange}
+                className={styles.input}
               />
             </div>
-            <input type="submit" value="Editar" className={`${styles.btn} ${styles.solid}`} />
+            <input
+              type="submit"
+              value="Editar"
+              className={`${styles.btn} ${styles.solid}`}
+            />
           </form>
+        </div>
+      </div>
+
+      <div className={styles["panels-container"]}>
+        <div className={styles.panel}>
+          <div className={styles.content}>
+            <h3>Edite suas informações aqui.</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod
+              dicta quasi dolores suscipit?
+            </p>
+          </div>
+          <img src={img} alt="imagem" className={styles.image} />
         </div>
       </div>
     </div>

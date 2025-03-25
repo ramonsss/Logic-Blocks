@@ -8,17 +8,20 @@ import Message from "./components/layout/Message";
 
 // context
 import { UserProvider } from "./context/UserContext";
+import { QuizProvider } from "./context/quiz.jsx";
 
 function App() {
   return (
     <div className="App">
       <UserProvider>
-        <Navbar />
-        <Message />
-        <Container>
-          <Outlet />
-        </Container>
-        <Footer />
+        <QuizProvider>
+          <Navbar />
+          <Message />
+          <Container>
+            <Outlet />
+          </Container>
+          <Footer />
+        </QuizProvider>
       </UserProvider>
     </div>
   );

@@ -1,0 +1,42 @@
+.option {
+    background-color: #003369;
+    border-radius: .5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    opacity: .8;
+    transition: .4s;
+}
+
+.option:hover {
+    opacity: 1;
+}
+
+.options_container .option p {
+    margin-bottom: 0;
+}
+
+.correct {
+    background-color: #0bfc03;
+    font-weight: bold;
+    color: #fff;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        background-color: #0bfc03;
+    }
+
+    50% {
+        background-color: #003369;
+    }
+}
+
+.wrong {
+    background-color: red;
+}
+
+.hide {
+    display: none;
+}

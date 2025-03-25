@@ -21,20 +21,26 @@ export default function useAuth() {
   async function register(user) {
     let msgText = "Cadastro realizado com sucesso!";
     let msgType = "success";
-
+  
     try {
       const data = await api.post("/users/register", user).then((response) => {
         return response.data;
       });
-
+  
       await authUser(data);
     } catch (error) {
-      msgText = error.response.data.message;
+      // Verificando se a estrutura de erro tem as propriedades esperadas
+      if (error.response && error.response.data && error.response.data.message) {
+        msgText = error.response.data.message;
+      } else {
+        msgText = "Ocorreu um erro inesperado.";
+      }
       msgType = "error";
     }
-
+  
     setFlashMessage(msgText, msgType);
   }
+  
 
   async function login(user) {
     let msgText = "Login realizado com sucesso!";

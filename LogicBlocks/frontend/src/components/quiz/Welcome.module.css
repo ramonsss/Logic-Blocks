@@ -1,0 +1,50 @@
+.welcome body {
+    max-width: 500px;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.welcome {
+  text-align: center;
+  max-width: 500px;
+}
+
+.welcome h2,
+.welcome p {
+  margin-bottom: 1rem;
+}
+
+.welcome p {
+  color: #007aff;
+}
+
+.welcome img {
+  margin-top: 2rem;
+}
+
+.welcome img {
+  max-width: 100%;
+}
+
+.welcome button {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fdfdfd;
+  cursor: pointer;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 122, 255, 1) 0%,
+    rgba(90, 168, 241, 1) 100%
+  );
+  border-radius: 3rem;
+  border: none;
+}
+
+.welcome button:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(90, 168, 241, 1) 0%,
+    rgba(0, 122, 255, 1) 100%
+  );
+}

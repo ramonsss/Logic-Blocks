@@ -1,0 +1,42 @@
+.question {
+  text-align: center;
+  max-width: 500px;
+  background-color: #007aff;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.question h2 {
+  margin-bottom: 2rem;
+  color: #fdfdfd;
+}
+
+.question p {
+  margin-bottom: 1rem;
+  color: #fdfdfd;
+}
+
+.question button {
+  border: 2px solid #fff;
+  margin: 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fdfdfd;
+  cursor: pointer;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 122, 255, 1) 0%,
+    rgba(90, 168, 241, 1) 100%
+  );
+  border-radius: 3rem;
+  border: none;
+}
+
+.question button:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(90, 168, 241, 1) 0%,
+    rgba(0, 122, 255, 1) 100%
+  );
+}
